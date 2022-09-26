@@ -1,0 +1,24 @@
+{
+  "name": "ReplitReactjsProject",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "build:css": "tailwind build -i src/input.css -o dist/output.css"
+  },
+  "dependencies": {
+    "@react-spring/parallax": "^9.5.5",
+    "@types/react": "^17.0.13",
+    "@types/react-dom": "^17.0.8",
+    "@vitejs/plugin-react": "^2.0.0",
+    "ethers": "^5.4.4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-spring": "^9.5.5",
+    "vite": "^3.0.4"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.1.8"
+  }
+}

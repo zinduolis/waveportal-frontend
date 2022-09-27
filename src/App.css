@@ -30,5 +30,21 @@
   padding: 8px;
   border: 0;
   border-radius: 5px;
+  color: #ffffff;
+  background-color: #42b883;
   
 }
+
+.banner {
+    /* The image used */
+    background-image:
+    url(./img/mini-profile-bg-01.jpg);
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    /* Prevent image from repeating */
+    background-repeat: no-repeat;
+    height: 300px;
+    display: flex;
+    position: relative;
+    background-size: cover;
+  }

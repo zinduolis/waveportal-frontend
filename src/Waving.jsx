@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import abi from "./utils/WavePortal.json";
+import "./App.css";
 
 const Waving = () => {
   const [currentAccount, setCurrentAccount] = useState('');
@@ -95,18 +96,22 @@ const Waving = () => {
         </div>
         <div className="bio">
           
-          Red Graz is here transitioning from AppSec into Web3. Connect your Ethereum wallet and wave at me!
+          Connect your Ethereum wallet and wave at me from Goerli Network!
         </div>
-                  
-        <button className="bg-emerald-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={wave}>
-          Wave at Me
-        </button>
 
-        {!currentAccount && (
-          <button className="bg-emerald-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={connectWallet}>
-            Connect Wallet
-          </button>    
+        <div className="bio">
+                  
+          <button className="waveButton" onClick={wave}>
+            Wave at Me
+          </button>
+  
+          {!currentAccount && (
+            <button className="bg-emerald-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={connectWallet}>
+              Connect Wallet
+            </button> 
+      
         )}
+        </div>
       </div>
     </div>
   );

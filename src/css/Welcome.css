@@ -1,0 +1,24 @@
+#background {
+    width: 100%; 
+    height: 100%; 
+    position: fixed; 
+    left: 0px; 
+    top: 0px; 
+    background-size: 100% 100%
+    z-index: -1; /* Ensure div tag stays behind content; -999 might work, too. */
+}
+
+.stretch {
+    background: no-repeat center center flex;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#tmWelcome {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: transparent;
+}

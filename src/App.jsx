@@ -13,11 +13,11 @@ const App = () => {
     <div className="maincontainer">
       <div className="banner">
       </div>      
-      <Waving />
+      
       <div className="bio">
         <AboutMe />
       </div>
-      
+      <Waving />
     </div>
   );
 }

@@ -115,9 +115,24 @@ const Waving = () => {
         <div className="bio">
             Connect your Ethereum wallet and wave at me from Goerli Network!
         </div>
-        <div className="boxCounter">
+
+        <div className="datacontainer">
+
+        {totalWaves === 0 ?
+
+        (<div className="lds-hourglass"> 
+          Loading...
+        </div>)
+        :
+        (<div className="boxCounter">
               <p> 🌊 {totalWaves} </p>
+        </div>)
+        }
+          
         </div>
+
+        
+
 
         <div className="bio">
           {currentAccount && (
@@ -128,7 +143,7 @@ const Waving = () => {
 
   
           {!currentAccount && (
-            <button className="bg-emerald-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={connectWallet}>
+            <button className="waveButton" onClick={connectWallet}>
               Connect Wallet
             </button>     
         )}

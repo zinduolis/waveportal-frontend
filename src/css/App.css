@@ -28,7 +28,9 @@
   cursor: pointer;
   margin-top: 16px;
   padding: 8px;
-  border: 0;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 5px;
   border-radius: 5px;
   color: #ffffff;
   background-color: #42b883;
@@ -38,7 +40,7 @@
 .banner {
     /* The image used */
     background-image:
-    url(./img/mini-profile-bg-01.jpg);
+    url(../img/mini-profile-bg-01.jpg);
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     /* Prevent image from repeating */
@@ -48,3 +50,17 @@
     position: relative;
     background-size: cover;
   }
+
+.boxCounter {
+  background-color: hsl(153, 47%, 49%);
+  border: 6px solid black;
+  border-radius: 8px;
+  padding: 5px;
+  width: 300px;
+  min-height: 200px;
+  margin: 30px auto;
+  box-sizing: border-box;
+  box-shadow: 10px 10px 5px hsl(154, 4%, 68%);
+  font-size: 110px;
+  color: #ffffff;
+}

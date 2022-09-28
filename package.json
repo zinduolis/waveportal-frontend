@@ -5,7 +5,7 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "build:css": "tailwind build -i src/input.css -o dist/output.css"
+    "build:css": "tailwind build -i src/css/tailwind/input.css -o src/css/tailwind/output.css"
   },
   "dependencies": {
     "@react-spring/parallax": "^9.5.5",

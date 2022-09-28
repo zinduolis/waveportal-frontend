@@ -6,11 +6,11 @@ function AboutMe(){
   return (
     <div>
     	<blockquote>
-  		  <p>I'm transitioning from AppSec into Web3. 
+  		  <p>I'm transitioning from AppSec into Web3. Also, I'm a keen 🏄‍♂️ and gardener 🏡. 
         </p>
         <cite>Red<span className="cite-last-name">Graz</span></cite>
         <div className="blockquote-author-image">
-          <img src={avatar} alt="Me" />
+          <img className="mePicture" src={avatar} alt="Me" />
         </div>
 	    </blockquote>
     </div>

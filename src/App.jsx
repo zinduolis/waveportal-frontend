@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
-import Welcome from "./Welcome";
 import Waving from "./Waving";
-import "./App.css";
+import "./css/App.css";
 
 import AboutMe from "./AboutMe";
 
@@ -16,7 +15,7 @@ const App = () => {
       </div>      
       <Waving />
       <div className="bio">
-      <AboutMe />
+        <AboutMe />
       </div>
       
     </div>

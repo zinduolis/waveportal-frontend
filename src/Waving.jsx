@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import abi from "./utils/WavePortal.json";
-import "./App.css";
+import "./css/App.css";
 
 const Waving = () => {
   const [currentAccount, setCurrentAccount] = useState('');
@@ -59,17 +59,14 @@ const Waving = () => {
         const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
         const wavePortalContract = new ethers.Contract(contractAddress, contractABI, signer);
-
-        let count = await wavePortalContract.getTotalWaves();
-        console.log("Retrieved total wave count...", count.toNumber());
-
+        
         const waveTxn = await wavePortalContract.wave();
         console.log("Mining...", waveTxn.hash);
-
         await waveTxn.wait();
         console.log("Mined -- ", waveTxn.hash);
 
-        count = await wavePortalContract.getTotalWaves();
+        let count = await wavePortalContract.getTotalWaves();
+        setTotalWaves(count.toNumber());
         console.log("Retrieved total wave count...", count.toNumber());
       
       } else {
@@ -79,9 +76,30 @@ const Waving = () => {
       console.log(error);
     }
   }
+
+  const getWaveCount = async () => {
+    try{
+      const { ethereum } = window;
+
+      if (ethereum) {
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        const wavePortalContract = new ethers.Contract(contractAddress, contractABI, signer);
+
+        let count = await wavePortalContract.getTotalWaves();
+        setTotalWaves(count.toNumber());
+      
+      } else {
+        console.log("Ethereum object doesn't exist!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    
+  } 
   
   useEffect(() => {
-    checkIfWalletIsConnected();
+    checkIfWalletIsConnected().then(getWaveCount());
   }, [])
 
   return (
@@ -95,21 +113,24 @@ const Waving = () => {
           
         </div>
         <div className="bio">
-          
-          Connect your Ethereum wallet and wave at me from Goerli Network!
+            Connect your Ethereum wallet and wave at me from Goerli Network!
+        </div>
+        <div className="boxCounter">
+              <p> 🌊 {totalWaves} </p>
         </div>
 
         <div className="bio">
-                  
-          <button className="waveButton" onClick={wave}>
-            Wave at Me
-          </button>
+          {currentAccount && (
+            <button className="waveButton" onClick={wave}>
+              Wave at Me
+            </button>
+          )}        
+
   
           {!currentAccount && (
             <button className="bg-emerald-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={connectWallet}>
               Connect Wallet
-            </button> 
-      
+            </button>     
         )}
         </div>
       </div>

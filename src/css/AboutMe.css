@@ -36,6 +36,14 @@ body {
 	color: hsl(0 0% 15%);
 }
 
+.mePicture {
+  border-radius: 70%;
+  max-height: 120px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+}
+
 .article {
 	max-width: 900px;
 	margin: auto;

@@ -7,7 +7,8 @@ const Waving = () => {
   const [currentAccount, setCurrentAccount] = useState('');
   const [allWaves, setAllWaves] = useState([])
   const [totalWaves, setTotalWaves] = useState(0);
-  const contractAddress = "0xC9DCC7B0288FBb4fedd8915Bc1D72aD4df0a6479";
+  const [waveMsg, setWaveMsg] = useState('');
+  const contractAddress = "0xec480F158B5fdCaADf216e0E138e8B33e575759C";
   const contractABI = abi.abi;
   
   
@@ -60,8 +61,15 @@ const Waving = () => {
         const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
         const wavePortalContract = new ethers.Contract(contractAddress, contractABI, signer);
+        let msg = '';
+        if (waveMsg) {
+          msg = waveMsg;
+        } else {
+          msg ='🤖';
+        }
+        setWaveMsg('');
         
-        const waveTxn = await wavePortalContract.wave("I am waving");
+        const waveTxn = await wavePortalContract.wave(msg);
         console.log("Mining...", waveTxn.hash);
         await waveTxn.wait();
         console.log("Mined -- ", waveTxn.hash);
@@ -142,7 +150,7 @@ const Waving = () => {
         </div>
         <div className="datacontainer">
         {
-          !currentAccount
+          totalWaves === 0
         ? (
           <div className="lds-hourglass"> 
             Loading...
@@ -161,6 +169,7 @@ const Waving = () => {
               <button className="waveButton" onClick={wave}>
                 Wave at Me
               </button>
+
           )}        
   
           {
@@ -170,11 +179,19 @@ const Waving = () => {
               </button>     
         )}
       </div>
+      <div className="p-6 max-w-sm mx-auto bg-emerald rounded-xl shadow-xl flex items-center space-x-10">
+
+            <input
+              onChange={e => setWaveMsg(e.target.value)}
+              placeholder="Write message" 
+              value={waveMsg}
+            />
+      </div>
 
       {allWaves.map((wave, index) => {
         return (
           <div key={index} style={{ backgroundColor: "OldLace", marginTop: "16px", padding: "8px"}}>
-            <div> Address: {wave.address}</div>
+            <div>Address: {wave.address}</div>
             <div>Time: {wave.timestamp.toString()}</div>
             <div>Message: {wave.message}</div>
           </div>

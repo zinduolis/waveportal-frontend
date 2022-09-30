@@ -100,3 +100,17 @@
     transform: rotate(1800deg);
   }
 }
+
+.waveTable {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 5px;
+  max-height: 200px;
+  max-width: 600px;
+  margin: 30px auto;
+  box-sizing: border-box;
+  box-shadow: 10px 10px 5px hsl(154, 4%, 68%);
+  font-size: 16px;
+  color: #3c3939;
+}
